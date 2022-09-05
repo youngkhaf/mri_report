@@ -165,7 +165,7 @@
           label="Densité de la prostate"
           placeholder="XXXX"
           name="name"
-          type="number"
+          type="text"
         ></Input>
         <Checkbox
           v-model="mri.invasion_local"
@@ -214,7 +214,7 @@
           label="Siège"
           placeholder="XXXX"
           name="name"
-          type="number"
+          type="text"
         ></Input>
         <Input
           v-model="mri.suspected_leisure_taille"
@@ -230,7 +230,7 @@
           label="Pirads"
           placeholder="XXXX"
           name="name"
-          type="number"
+          type="text"
         ></Input>
         <Input
           v-model="mri.extension"
