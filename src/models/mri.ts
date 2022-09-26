@@ -30,6 +30,7 @@ export  class MRI{
   suspected_leisure_atteintevs!: string;
   suspected_leisure_adenopathies!: string;
   extension!: string;
+  gleason_score!:string;
   test()
   {
     this.parse({
@@ -63,7 +64,8 @@ export  class MRI{
       suspected_leisure_effractioncapsulaire: "oui",
       suspected_leisure_atteintevs: "oui",
       suspected_leisure_adenopathies: "oui",
-      extension: "12"
+      extension: "12",
+      gleason_score:"12"
     })
   }
   parse(object){
@@ -72,7 +74,11 @@ export  class MRI{
     })
   }
   isValid(){
+    //console.log("phone number : ",this.phoneNumber,this.phoneNumber.length === 9)
     return Object.entries(this).every(([key,value]) =>{
+      // if(!value){
+      //   console.log("invalid key ",key,"value",value)
+      // }
       return !!value
     }) && this.phoneNumber.length === 9
   }

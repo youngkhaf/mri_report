@@ -45,9 +45,15 @@
           placeholder="XXXX"
           name="name"
           :options="[
-      'hpd' , 
-      'hald' ,'hogip' , 'chan' , 'chpk' , 'privé' , 'centre de santé' , 'région'
-    ]"
+            'hpd',
+            'hald',
+            'hogip',
+            'chan',
+            'chpk',
+            'privé',
+            'centre de santé',
+            'région',
+          ]"
         ></Select>
         <Select
           v-model="mri.requesting_doctor"
@@ -59,7 +65,6 @@
         ></Select>
         <Input label="Numéro de téléphone" v-model="mri.phoneNumber"></Input>
         <Title></Title>
-        
       </span>
       <span class="flex flex-col w-full gap-6 my-0 mx-auto">
         <Title label="INDICATIONS CLINIQUES"></Title>
@@ -69,10 +74,7 @@
           label="TR"
           placeholder="XXXX"
           name="name"
-          :options="[
-      'prostate suspecté',
-        'prostate aspect normal'
-    ]"
+          :options="['prostate suspecté', 'prostate aspect normal']"
         ></Select>
         <Checkbox v-model="mri.sbau" number="2" label="SBAU"></Checkbox>
         <Checkbox
@@ -111,9 +113,7 @@
           label="Aspect de la prostate"
           placeholder="XXXX"
           name="name"
-          :options="[
-      'hétérogéne', 'homogéne'
-    ]"
+          :options="['hétérogéne', 'homogéne']"
         ></Select>
         <Checkbox
           v-model="mri.calcification"
@@ -126,9 +126,7 @@
           label="Aspect de la prostate"
           placeholder="XXXX"
           name="name"
-          :options="[
-      'regulier', 'irregulier'
-    ]"
+          :options="['regulier', 'irregulier']"
         ></Select>
         <Input
           v-model="mri.echo_prostate_volume"
@@ -144,9 +142,7 @@
           label="Nodule"
           placeholder="XXXX"
           name="name"
-          :options="[
-      'present', 'absent'
-    ]"
+          :options="['present', 'absent']"
         ></Select>
         <Title></Title>
         <Title label="TDM"></Title>
@@ -188,10 +184,29 @@
           label="Présence de l'adénopathie"
           placeholder="XXXX"
           name="name"
-          :options="[
-        'iliaque' ,'ilio obturateur', 'médiastinal'
-    ]"
+          :options="['iliaque', 'ilio obturateur', 'médiastinal']"
         ></Select>
+        <Title></Title>
+        <Title></Title>
+        <Title label="Adénocarcinome de la prostate"></Title>
+        <Select
+          v-model="mri.gleason_score"
+          number="1"
+          label="Score de Gleason"
+          placeholder="XXXX"
+          name="name"
+          :options="[
+            '6(3+3)',
+            '7(3+4)',
+            '7(4+3)',
+            '8(4+4)',
+            '8(3+5)',
+            '8(5+3)',
+            '9(4+5)',
+            '9(5+4)',
+            '10(5+5)',
+          ]"
+        />
         <Title></Title>
         <Title label="IRM"></Title>
 
@@ -260,7 +275,7 @@
     </ul>
     <span class="flex w-full justify-end gap-4">
       <button
-      @click.prevent="initMri"
+        @click.prevent="initMri"
         class="
           px-4
           py-2
@@ -275,30 +290,30 @@
         Réinitialiser
       </button>
       <button
-
         @click.prevent="submitMri"
         :disabled="!mri.isValid()"
         :class="{
-          'px-4 py-2 rounded bg-primary font-semibold text-sm transition-colors hover:bg-primaryVar disabled' : mri.isValid()
+          'px-4 py-2 rounded bg-primary font-semibold text-sm transition-colors hover:bg-primaryVar disabled':
+            mri.isValid(),
         }"
       >
-                    <svg
-                v-if="submit"
-                role="status"
-                class="inline mr-3 w-4 h-4 text-white animate-spin"
-                viewBox="0 0 100 101"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                  fill="#E5E7EB"
-                />
-                <path
-                  d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                  fill="currentColor"
-                />
-              </svg>
+        <svg
+          v-if="submit"
+          role="status"
+          class="inline mr-3 w-4 h-4 text-white animate-spin"
+          viewBox="0 0 100 101"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+            fill="#E5E7EB"
+          />
+          <path
+            d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+            fill="currentColor"
+          />
+        </svg>
         Enregistrer
       </button>
     </span>
@@ -314,47 +329,40 @@ import Radio from "./Radio.vue";
 import Select from "./Select.vue";
 import Title from "./Title.vue";
 import { MRI } from "../models/mri";
-import { computed, inject, ref,watch } from "vue";
+import { computed, inject, ref, watch } from "vue";
 import { useStore } from "vuex";
 
 const mri = ref(new MRI());
-//mri.value.test()
-const strore = useStore()
-const toast = inject('toast')
-const submit = ref(false)
+mri.value.test()
+const strore = useStore();
+const toast = inject("toast");
+const submit = ref(false);
 
-watch
-  (mri,
+watch(
+  mri,
   (val) => {
     /* ... */
-  },{deep:true})
-  const initMri = () =>{
-    mri.value = new MRI()
-  }
-  const submitMri  = async() =>{
-    try{
-      
-      submit.value = true
-      await strore.dispatch('addMri',mri.value.toLowerCase()).then(()=>{
-
-            initMri()
-            toast.success("Fiche enregistré avec succes")
-
-      }).finally(()=>{
-        submit.value = false
+  },
+  { deep: true }
+);
+const initMri = () => {
+  mri.value = new MRI();
+};
+const submitMri = async () => {
+  try {
+    submit.value = true;
+    await strore
+      .dispatch("addMri", mri.value.toLowerCase())
+      .then(() => {
+        initMri();
+        toast.success("Fiche enregistré avec succes");
       })
-
-
-    }
-    catch(err){
-
-    }
-
-    
-  }
-
+      .finally(() => {
+        submit.value = false;
+      });
+  } catch (err) {}
+};
 </script>
 
 <style scoped>
-
 </style>
