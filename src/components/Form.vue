@@ -106,7 +106,7 @@
           name="name"
           type="number"
         ></Input>
-        <Title label="Echographie"></Title>
+        <!-- <Title label="Echographie"></Title>
         <Select
           v-model="mri.echographic_aspect_prostate"
           number="1"
@@ -185,7 +185,7 @@
           placeholder="XXXX"
           name="name"
           :options="['iliaque', 'ilio obturateur', 'médiastinal']"
-        ></Select>
+        ></Select> -->
         <Title></Title>
         <Title></Title>
         <Title label="Adénocarcinome de la prostate"></Title>
@@ -333,7 +333,6 @@ import { computed, inject, ref, watch } from "vue";
 import { useStore } from "vuex";
 
 const mri = ref(new MRI());
-mri.value.test()
 const strore = useStore();
 const toast = inject("toast");
 const submit = ref(false);
