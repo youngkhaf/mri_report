@@ -75,11 +75,8 @@ export  class MRI{
   }
   isValid(){
     //console.log("phone number : ",this.phoneNumber,this.phoneNumber.length === 9)
-    return Object.entries(this).every(([key,value]) =>{
-      // if(!value){
-      //   console.log("invalid key ",key,"value",value)
-      // }
-      return !!value
+    return ['years','age','requesting_hospital','requesting_doctor'].every((key) =>{
+      return !!this[key]
     }) && this.phoneNumber.length === 9
   }
   toLowerCase(){
